@@ -127,17 +127,17 @@ tablero[10][9]=10
       
 #Piezas jugador 1
 tablero[1][1]=511
-tablero[1][2]=610
+tablero[1][2]=611
 tablero[1][3]=111
-tablero[2][1]=310
-tablero[2][2]=410
+tablero[2][1]=311
+tablero[2][2]=411
 tablero[2][3]=111
 tablero[3][1]=111
 tablero[3][2]=111
 tablero[3][3]=211
  
 #Piezas jugador 2
-tablero[3][4]=121
+tablero[1][7]=121
 tablero[1][8]=621
 tablero[1][9]=521
 tablero[2][7]=121
