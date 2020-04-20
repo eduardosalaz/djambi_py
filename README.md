@@ -6,7 +6,9 @@ EN ESPANIOL :D
 PSA Check Refactor branch
 # INSTALLATION
 Just git clone and do 
-`git clone https://github.com/eduardosalaz/djambi_py/.git
- cd djambi_py/
- python DjambiFinal.py`
+```
+git clone https://github.com/eduardosalaz/djambi_py/.git
+cd djambi_py/
+python DjambiFinal.py
+ ```
  No dependencies
