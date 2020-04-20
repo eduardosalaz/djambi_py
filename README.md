@@ -6,7 +6,7 @@ EN ESPANIOL :D
 
 PSA Check Refactor branch (WIP!)
 # INSTALLATION
-Just git clone and do 
+No brainer 
 ```
 git clone https://github.com/eduardosalaz/djambi_py/.git
 cd djambi_py/
