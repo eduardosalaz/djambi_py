@@ -2,7 +2,7 @@
 djambi written in Python 3.x (works 99% of time)
 EN ESPANIOL :D
 # NOTE
-**Code is a fucking mess, will refactor it when I have time**
+**Code is a mess, will refactor it when I have time**
 
 PSA Check Refactor branch (WIP!)
 # INSTALLATION
