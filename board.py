@@ -168,6 +168,9 @@ class Board:
         """
         Move a piece from one position to another.
 
+        Note: If there's a captured piece, it will be marked as dead but NOT removed
+        from the board. The caller is responsible for placing the dead piece.
+
         Args:
             from_row: Starting row
             from_col: Starting column
@@ -184,7 +187,7 @@ class Board:
         self.grid[to_row][to_col] = piece
         self.grid[from_row][from_col] = None
 
-        # If a piece was captured, mark it as dead
+        # If a piece was captured, mark it as dead (but don't remove it yet)
         if captured:
             captured.kill()
 

@@ -184,6 +184,40 @@ class Game:
 
             return (to_row, to_col)
 
+    def place_captured_piece(self, captured_piece) -> Tuple[int, int]:
+        """
+        Prompt player to place a captured (dead) piece on the board.
+
+        Args:
+            captured_piece: The dead piece to place
+
+        Returns:
+            (row, col) where the piece was placed
+        """
+        while True:
+            self.display.render_board(self.board, self.get_current_player().team)
+            self.display.print_message(f"Pieza {captured_piece.piece_type.value} capturada! Debe colocarla en el tablero.")
+
+            new_row = self.display.get_integer_input(
+                "Ingrese el número (en dígito) de la fila donde quiere colocar la pieza capturada."
+            )
+            new_col = self.display.get_integer_input(
+                "Ingrese el número (en dígito) de la columna donde quiere colocar la pieza capturada."
+            )
+
+            # Validate: must be empty and not center
+            if self.board.get_piece(new_row, new_col) is not None:
+                self.display.print_error("Las piezas capturadas sólo pueden ocupar lugares vacíos.")
+                continue
+
+            if new_row == 5 and new_col == 5:
+                self.display.print_error("Las piezas capturadas no pueden ocupar el centro.")
+                continue
+
+            # Place the dead piece
+            self.board.set_piece(new_row, new_col, captured_piece)
+            return (new_row, new_col)
+
     def handle_assassin_capture(self, assassin_start: Tuple[int, int],
                                  capture_pos: Tuple[int, int], captured_piece):
         """
@@ -342,7 +376,8 @@ class Game:
             # Normal move/capture
             captured = self.board.move_piece(from_row, from_col, to_row, to_col)
             if captured:
-                self.display.print_success(f"Pieza {captured.piece_type.value} capturada!")
+                # Player must place the captured piece on the board
+                self.place_captured_piece(captured)
 
     def play_turn(self):
         """Execute a single turn for the current player."""
